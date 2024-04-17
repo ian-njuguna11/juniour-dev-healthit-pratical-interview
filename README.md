@@ -39,12 +39,12 @@ Create a database for the project in MySQL then configure the parameters `DB_DAT
 #### 4. Run database migration
 Make sure configuration is not cached:
 ```bash
-php artisan config:clear
+php artisan optimize:clear
 ```
 
 Then run migration. This will run database scripts to create database tables:
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 #### 5. Run the application
