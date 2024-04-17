@@ -5,7 +5,7 @@
         <div>
             <!-- component -->
             <div class="shadow-lg rounded-lg overflow-hidden">
-                <div class="py-3 px-5 bg-gray-50">Task reports According to priority</div>
+                <div class="py-3 px-5 bg-gray-50">Task reports According to Status</div>
                 <canvas class="p-10" id="chartDoughnut"></canvas>
             </div>
 
@@ -26,56 +26,95 @@
 
         <!-- Chart doughnut -->
         <script>
-            const dataDoughnut = {
-                labels: ["Critical", "High", "Medium"],
-                datasets: [{
-                    label: "My Status",
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        "rgb(133, 105, 241)",
-                        "rgb(164, 101, 241)",
-                        "rgb(101, 143, 241)",
-                    ],
-                    hoverOffset: 4,
-                }, ],
-            };
+            fetch('http://127.0.0.1:8000/api/tasks_status_report')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const dataArray = Array.from(data);
+                    console.log(dataArray);
+                    // Create chart after data is fetched
+                    createChart(dataArray);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
 
-            const configDoughnut = {
-                type: "doughnut",
-                data: dataDoughnut,
-                options: {},
-            };
+            function createChart(dataArray) {
+                const dataDoughnut = {
+                    labels: ["Inprogress", "Complete", "blocked"],
+                    datasets: [{
+                        label: "My Status",
+                        data: dataArray,
+                        backgroundColor: [
+                            "rgb(0,191,255)",
+                            "rgb(0,250,154)",
+                            "rgb(255,0,0)",
+                        ],
+                        hoverOffset: 4,
+                    }],
+                };
 
-            var chartBar = new Chart(
-                document.getElementById("chartDoughnut"),
-                configDoughnut
-            );
+                const configDoughnut = {
+                    type: "doughnut",
+                    data: dataDoughnut,
+                    options: {},
+                };
+
+                var chartBar = new Chart(
+                    document.getElementById("chartDoughnut"),
+                    configDoughnut
+                );
+            }
 
             //status
-            const dataDoughnutstatus = {
-                labels: ["Critical", "High", "Medium"],
-                datasets: [{
-                    label: "My Priority",
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                        "rgb(133, 105, 241)",
-                        "rgb(164, 101, 241)",
-                        "rgb(101, 143, 241)",
-                    ],
-                    hoverOffset: 4,
-                }, ],
-            };
 
-            const configDoughnutstatus = {
-                type: "doughnut",
-                data: dataDoughnutstatus,
-                options: {},
-            };
+            fetch('http://127.0.0.1:8000/api/tasks_priority_report')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const dataArray = Array.from(data);
+                    console.log(dataArray);
+                    // Create chart after data is fetched
+                    createChartStatus(dataArray);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
 
-            var chartBar = new Chart(
-                document.getElementById("chartDoughnut-status"),
-                configDoughnutstatus
-            );
+            function createChartStatus(dataArray) {
+                const dataDoughnutstatus = {
+                    labels: ["Critical", "High", "Medium"],
+                    datasets: [{
+                        label: "My Priority",
+                        data: [10, 20, 10],
+                        backgroundColor: [
+                            "rgb(0,191,255)",
+                            "rgb(0,250,154)",
+                            "rgb(255,0,0)",
+                        ],
+                        hoverOffset: 4,
+                    }, ],
+                };
+
+                const configDoughnutstatus = {
+                    type: "doughnut",
+                    data: dataDoughnutstatus,
+                    options: {},
+                };
+
+                var chartBar = new Chart(
+                    document.getElementById("chartDoughnut-status"),
+                    configDoughnutstatus
+                );
+            }
         </script>
 
     </div>

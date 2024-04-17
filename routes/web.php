@@ -18,23 +18,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TaskController::class, 'index'] )->name('dashboard');
 
-Route::resource('tasks',TaskController::class);
-Route::resource('url',UrlShortenerController::class);
 
+// url shortner - question-five
+Route::resource('url',UrlShortenerController::class);
+Route::get('urlShortener', [UrlShortenerController::class, 'short'])->name('url.shortener');
+Route::get('urlShortenerView/{urlShortener}', [UrlShortenerController::class,'urlShortenerView'])->name('url.urlShortenerView');
+Route::get('/question-five', function () {return view('question-five');})->name('question-five');
+
+//  task contoller -- question three
+Route::get('task-orderByDate', [TaskController::class, 'orderByDate'])->name('tasks.orderByDate');
+Route::get('/question-three', [TaskController::class, 'questionThree'])->name('question-three');
+
+// task contoller -- question one
+Route::resource('tasks',TaskController::class);
 Route::get('delete-task/{task}', [TaskController::class, 'destroy'])->name('delete.task');
 Route::get('task-reports', [TaskController::class, 'reports'])->name('tasks.reports');
-Route::get('task-orderByDate', [TaskController::class, 'orderByDate'])->name('tasks.orderByDate');
 
 
-Route::get('/question-three', function () {
-    return view('question-three', ['tasks' => App\Models\Task::all()]);
-})->name('question-three');
-
-Route::get('/question-five', function () {
-    return view('question-five');
-})->name('question-five');
-
-Route::get('urlShortener', [UrlShortenerController::class, 'short'])->name('url.shortener');
 
 
 

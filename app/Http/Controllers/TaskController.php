@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use PHPUnit\Framework\Constraint\Count;
 
 class TaskController extends Controller
 {
@@ -46,7 +47,7 @@ class TaskController extends Controller
      */
     public function orderByDate()
     {
-        $tasks = Task::query()->orderBy('tracking_date', 'desc')->get();
+        $tasks = Task::query()->orderBy('tracking_date', 'desc')->paginate(15)->withQueryString();
        return view('question-three', ['tasks' => $tasks]);
     }
 
@@ -80,5 +81,33 @@ class TaskController extends Controller
     {
         $task->delete();
         return back()->with('message', 'item deleted successfully');
+    }
+
+    public function questionThree(){
+         return view('question-three', ['tasks' => Task::paginate(15)->withQueryString()]);
+    }
+
+    function taskStatusReport(){
+        $_inprogress = Count(Task::where('status' , 'like', '%inprogress%')->get());
+        $_complete = Count(Task::where('status' , 'like', '%complete%')->get());
+        $_blocked = Count(Task::where('status' , 'like', '%complete%')->get());
+
+        return [
+            $_inprogress,
+            $_complete,
+            $_blocked
+        ];
+    }
+
+    function taskPriorityReport(){
+        $_low = Count(Task::where('priority' , 'like', '%low%')->get());
+        $_critical = Count(Task::where('priority' , 'like', '%critical%')->get());
+        $_high = Count(Task::where('priority' , 'like', '%high%')->get());
+
+        return [
+            $_low,
+            $_critical,
+            $_high
+        ];
     }
 }

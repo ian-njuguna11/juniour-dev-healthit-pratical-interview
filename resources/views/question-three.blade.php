@@ -1,39 +1,157 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-row">
-    <button  type="button" class=" flex flex-row  space-x-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"> 
-            <a href="{{ route('tasks.orderByDate') }} "  class=" flex flex-row  space-x-4">
-
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
-</svg>
-
-    
-         Order Desc tracking_date 
-            </a>
-    </button>
+    <div class="flex flex-row min-w-screen">
+        <p class="text-xl font-bold dark:text-white">
+            Click on the
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+            </svg>
+            icon to sort in descending order.
+        </p>
     </div>
+
+
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-  
+
 
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
 
-                    <th scope="col" class="px-6 py-3">
-                    tracking_date
+                    <th scope="col" class="px-6 py-3 flex flex-row items-end justify-between">
+                        tracking_date
+
+                        <a href="{{ route('tasks.orderByDate') }} " class=" flex flex-row  space-x-4">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+                            </svg>
+                        </a>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    task
+                        <div class="flex flex-row justify-between">
+                            task
+
+                            <a href="{{ route('tasks.orderByDate') }} " class=" flex flex-row  space-x-4">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+                                </svg>
+                            </a>
+                        </div>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    priority
+                        <div class=" flex flex-row justify-between">
+                            priority
+
+                            <button id="dropdownCheckboxButton" data-dropdown-toggle="dropdownDefaultCheckbox"
+                                href="">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                                </svg>
+
+
+                                <!-- Dropdown menu -->
+                                <div id="dropdownDefaultCheckbox"
+                                    class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="dropdownCheckboxButton">
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-1" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-1"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Low
+                                                    checkbox</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-2" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-2"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">High
+                                                    state</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-3" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-3"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Critical
+                                                    checkbox</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </button>
+                        </div>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    status
+                        <div class=" flex flex-row justify-between">
+                            status
+
+                            <button id="dropdownCheckboxButtonStatus" data-dropdown-toggle="dropdownDefaultCheckboxStatus"
+                                href="">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
+                                </svg>
+
+
+                                <!-- Dropdown menu -->
+                                <div id="dropdownDefaultCheckboxStatus"
+                                    class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="dropdownCheckboxButtonStatus">
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-1" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-1"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">complete
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-2" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-2"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">finished
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="flex items-center">
+                                                <input id="checkbox-item-3" type="checkbox" value=""
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                                <label for="checkbox-item-3"
+                                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">blocked
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </button>
+                        </div>
                     </th>
                     <th class="px-6 py-3">
                         Action
@@ -53,10 +171,53 @@
                         </td>
 
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                           {{ $task->priority }}
+
+                            @if ($task->priority === 'critical')
+                                <span
+                                    class="bg-red-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-white">{{ $task->priority }}</span>
+                            @endif
+
+                            @if ($task->priority === 'High')
+                                <span
+                                    class="bg-red-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-400 dark:text-white">{{ $task->priority }}</span>
+                            @endif
+
+                            @if ($task->priority === 'Midium')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->priority }}</span>
+                            @endif
+
+
+                            @if ($task->priority === 'Low')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->priority }}</span>
+                            @endif
+
+
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                           {{ $task->status }}
+                            {{-- {{ $task->status }} --}}
+
+                            @if ($task->status === 'blocked')
+                                <span
+                                    class="bg-red-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-white">{{ $task->status }}</span>
+                            @endif
+
+                            @if ($task->status === 'Inprogress')
+                                <span
+                                    class="bg-blue-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-400 dark:text-white">{{ $task->status }}</span>
+                            @endif
+
+                            @if ($task->status === 'Finished')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->status }}</span>
+                            @endif
+
+
+                            @if ($task->status === 'Complete')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->status }}</span>
+                            @endif
                         </td>
                         <td class="flex flex-row space-x-2">
                             <div>
@@ -125,7 +286,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Task  {{ $task->id }}
+                        Task {{ $task->id }}
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -146,34 +307,37 @@
                         {{ $task->priority }}
                         {{ $task->status }}
                     </p>
-                    
+
                 </div>
                 <!-- Modal footer -->
 
-                
+
                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button  type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
-            <a href="{{ route('tasks.edit', $task->id) }}"  class=" flex flex-row  space-x-4">
+                    <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="{{ route('tasks.edit', $task->id) }}" class=" flex flex-row  space-x-4">
 
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
-                </svg>
-    
-         Update Task 
-            </a>
-    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+                            </svg>
 
-                
+                            Update Task
+                        </a>
+                    </button>
+
+
+                </div>
             </div>
         </div>
-    </div>
-    @endforeach
+        @endforeach
 
-    </tbody>
-    </table>
-
+        </tbody>
+        </table>
 
 
+        {{ $tasks->links() }}
 
 
     </div>
