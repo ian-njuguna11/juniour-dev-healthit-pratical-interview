@@ -36,6 +36,8 @@ php artisan migrate
 Run
 ```bash
 php artisan serve
+
+npm run dev
 ```
 
 A development server will be started running in port `8000`
