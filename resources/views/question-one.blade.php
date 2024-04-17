@@ -2,50 +2,56 @@
 
 @section('content')
     <div class="flex flex-row">
-    <button  type="button" class=" flex flex-row  space-x-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"> 
-            <a href="{{ route('tasks.create') }} "  class=" flex flex-row  space-x-4">
 
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+        <button type="button"
+            class=" flex flex-row  space-x-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <a href="{{ route('tasks.create') }} " class=" flex flex-row  space-x-4">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
                 </svg>
-    
-         Create Task 
+
+                Create Task
             </a>
-    </button>
+        </button>
 
-    <button  type="button" class=" flex flex-row  space-x-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"> 
-            <a href="{{ route('tasks.reports') }} "  class=" flex flex-row  space-x-4">
+        <button type="button"
+            class=" flex flex-row  space-x-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            <a href="{{ route('tasks.reports') }} " class=" flex flex-row  space-x-4">
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
-</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                </svg>
 
-    
-         Task Reports
+
+                Task Reports
             </a>
-    </button>
+        </button>
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-  
+
 
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
 
                     <th scope="col" class="px-6 py-3">
-                    tracking_date
+                        tracking_date
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    task
+                        task
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    priority
+                        priority
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    status
+                        status
                     </th>
                     <th class="px-6 py-3">
                         Action
@@ -53,7 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (App\Models\Task::all() as $task)
+                @foreach ($tasks as $task)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
@@ -65,10 +71,53 @@
                         </td>
 
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                           {{ $task->priority }}
+
+                            @if ($task->priority === 'critical')
+                                <span
+                                    class="bg-red-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-white">{{ $task->priority }}</span>
+                            @endif
+
+                            @if ($task->priority === 'High')
+                                <span
+                                    class="bg-red-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-400 dark:text-white">{{ $task->priority }}</span>
+                            @endif
+
+                            @if ($task->priority === 'Midium')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->priority }}</span>
+                            @endif
+
+
+                            @if ($task->priority === 'Low')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->priority }}</span>
+                            @endif
+
+
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                           {{ $task->status }}
+                            {{-- {{ $task->status }} --}}
+
+                            @if ($task->status === 'blocked')
+                                <span
+                                    class="bg-red-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-white">{{ $task->status }}</span>
+                            @endif
+
+                            @if ($task->status === 'Inprogress')
+                                <span
+                                    class="bg-blue-400 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-400 dark:text-white">{{ $task->status }}</span>
+                            @endif
+
+                            @if ($task->status === 'Finished')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->status }}</span>
+                            @endif
+
+
+                            @if ($task->status === 'Complete')
+                                <span
+                                    class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">{{ $task->status }}</span>
+                            @endif
                         </td>
                         <td class="flex flex-row space-x-2">
                             <div>
@@ -137,7 +186,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                      Task  {{ $task->id }}
+                        Task {{ $task->id }}
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -158,33 +207,36 @@
                         {{ $task->priority }}
                         {{ $task->status }}
                     </p>
-                    
+
                 </div>
                 <!-- Modal footer -->
 
-                
+
                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button  type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
-            <a href="{{ route('tasks.edit', $task->id) }}"  class=" flex flex-row  space-x-4">
+                    <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="{{ route('tasks.edit', $task->id) }}" class=" flex flex-row  space-x-4">
 
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
-                </svg>
-    
-         Update Task 
-            </a>
-    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+                            </svg>
 
-                
+                            Update Task
+                        </a>
+                    </button>
+
+
+                </div>
             </div>
         </div>
-    </div>
-    @endforeach
+        @endforeach
 
-    </tbody>
-    </table>
+        </tbody>
+        </table>
 
-
+        {{ $tasks->links() }}
 
 
 

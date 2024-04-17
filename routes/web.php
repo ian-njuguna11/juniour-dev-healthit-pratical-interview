@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [TaskController::class, 'index'] )->name('dashboard');
+
 Route::resource('tasks',TaskController::class);
 Route::resource('url',UrlShortenerController::class);
 
@@ -23,9 +25,6 @@ Route::get('delete-task/{task}', [TaskController::class, 'destroy'])->name('dele
 Route::get('task-reports', [TaskController::class, 'reports'])->name('tasks.reports');
 Route::get('task-orderByDate', [TaskController::class, 'orderByDate'])->name('tasks.orderByDate');
 
-Route::get('/', function () {
-    return view('question-one');
-})->name('dashboard');
 
 Route::get('/question-three', function () {
     return view('question-three', ['tasks' => App\Models\Task::all()]);

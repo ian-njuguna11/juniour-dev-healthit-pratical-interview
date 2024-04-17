@@ -7,7 +7,11 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-   
+
+    public function index(){
+        return  view('question-one', ['tasks' => Task::paginate(15)->withQueryString()]);
+    }
+
     public function reports()
     {
        return view('task.reports');
@@ -65,7 +69,7 @@ class TaskController extends Controller
         'priority' => request()->input('priority-radio'),
         'status' => request()->input('status-radio'),
        ]);
-       
+
        return view('dashboardquestion-one');
     }
 
