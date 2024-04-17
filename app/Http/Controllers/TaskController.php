@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
 
     public function index(){
-        return  view('question-one', ['tasks' => Task::paginate(15)->withQueryString()]);
+        return  view('question-one', ['tasks' => Task::paginate(10)->withQueryString()]);
     }
 
     public function reports()
@@ -47,7 +47,7 @@ class TaskController extends Controller
      */
     public function orderByDate()
     {
-        $tasks = Task::query()->orderBy('tracking_date', 'desc')->paginate(15)->withQueryString();
+        $tasks = Task::query()->orderBy('tracking_date', 'desc')->paginate(10)->withQueryString();
        return view('question-three', ['tasks' => $tasks]);
     }
 
@@ -84,7 +84,7 @@ class TaskController extends Controller
     }
 
     public function questionThree(){
-         return view('question-three', ['tasks' => Task::paginate(15)->withQueryString()]);
+         return view('question-three', ['tasks' => Task::paginate(10)->withQueryString()]);
     }
 
     function taskStatusReport(){

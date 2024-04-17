@@ -5,6 +5,18 @@
 2. MySQL
 3. PHP 8
 ### Installation
+
+#### 0. Intro
+Question One.
+![screenshot1](question-one.png)
+![screenshot1](question-one-create.png)
+
+Question Three
+![screenshot1](order-desc-table.png)
+
+Question Four
+![screenshot1](url-shortener.png)
+
 #### 1. Clone the repository
 ```bash
 git clone https://github.com/ian-njuguna11/juniour-dev-healthit-pratical-interview
@@ -39,6 +51,8 @@ php artisan serve
 
 npm run dev
 ```
+
+
 
 A development server will be started running in port `8000`
 
