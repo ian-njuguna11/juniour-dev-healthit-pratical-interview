@@ -11,6 +11,9 @@ Question One.
 ![screenshot1](question-one.png)
 ![screenshot1](question-one-create.png)
 
+Dynamic API Based Reporting
+![screenshot1](question-one-dynamic-reports.png)
+
 Question Three
 ![screenshot1](order-desc-table.png)
 
